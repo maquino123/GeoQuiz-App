@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:gravity="center"
-        tools:text="@string/question_australia" />
+        tools:text="@string/question_australia"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -23,12 +23,14 @@
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="@string/true_button" />
 
         <Button
             android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="@string/false_button" />
 
     </LinearLayout>
@@ -45,13 +47,20 @@
             android:src="@drawable/arrow_left"
             android:contentDescription="Previous Button"/>
 
-    <ImageButton
-        android:id="@+id/next_button"
+        <ImageButton
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_right"
+            android:contentDescription="Next Button"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/cheat_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/arrow_right"
-        android:contentDescription="Next Button"/>
-
-</LinearLayout>
+        android:layout_marginTop="24dp"
+        android:text="@string/cheat_button"/>
 
 </LinearLayout>

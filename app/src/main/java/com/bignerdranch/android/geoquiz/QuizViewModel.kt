@@ -8,14 +8,15 @@ private const val TAG = "QuizViewModel"
 class QuizViewModel : ViewModel() {
 
     var currentIndex = 0
+    var isCheater = false
 
     private val questionBank = listOf(
-            Question(R.string.question_australia, true),
-            Question(R.string.question_oceans, true),
-            Question(R.string.question_mideast, false),
-            Question(R.string.question_africa, false),
-            Question(R.string.question_americas, false),
-            Question(R.string.question_asia, true)
+            Question(R.string.question_spongebob, false),
+            Question(R.string.question_patrick, false),
+            Question(R.string.question_plankton, true),
+            Question(R.string.question_pearl, true),
+            Question(R.string.question_krabs, false),
+            Question(R.string.question_clarinet, true)
     )
 
     val currentQuestionAnswer: Boolean
