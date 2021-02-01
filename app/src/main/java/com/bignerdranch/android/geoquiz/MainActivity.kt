@@ -53,8 +53,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         nextButton.setOnClickListener{
-            quizViewModel.moveToNext()
-            updateQuestion()
+
+            if (quizViewModel.nextQuestionAnswered){
+                trueButton.isClickable = false
+                falseButton.isClickable = false
+                quizViewModel.moveToNext()
+                updateQuestion()
+            }else{
+                trueButton.isClickable = true
+                falseButton.isClickable = true
+                quizViewModel.moveToNext()
+                updateQuestion()
+            }
         }
 
         cheatButton.setOnClickListener {
@@ -65,8 +75,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         previousButton.setOnClickListener{
-            quizViewModel.moveToPrevious()
-            updateQuestion()
+            if (quizViewModel.prevQuestionAnswered){
+                trueButton.isClickable = false
+                falseButton.isClickable = false
+                quizViewModel.moveToPrevious()
+                updateQuestion()
+            }else{
+                trueButton.isClickable = true
+                falseButton.isClickable = true
+                quizViewModel.moveToPrevious()
+                updateQuestion()
+            }
         }
 
         updateQuestion()
@@ -121,6 +140,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateQuestion() {
         val questionTextResId = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResId)
+
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
@@ -134,5 +154,9 @@ class MainActivity : AppCompatActivity() {
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
             .show()
+
+        trueButton.isClickable = false
+        falseButton.isClickable = false
+        quizViewModel.isAnswered(true)
     }
 }
